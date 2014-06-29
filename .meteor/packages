@@ -8,3 +8,9 @@ iron-router
 bootstrap-3
 jquery
 coffeescript
+accounts-ui
+accounts-password
+accounts-base
+accounts-google
+accounts-github
+accounts-weibo
