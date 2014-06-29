@@ -7,7 +7,7 @@ Template.home.rendered = ->
 	
 
 Template.home.posts = ->
-	Posts.find parent:null, sort:{date:-1}
+	Posts.find parent:null,	(sort: date: -1) # will not work if not use () to clarify
 
 Template.home.events
 	'keyup .posttext':(evt,tmpl)->
