@@ -14,7 +14,7 @@ Meteor.methods
 		ownr = if usr.profile? then usr.profile.name else usr.emails[0].address
 		post = {
 			text: options.text
-			owner: 
+			owner: ownr
 			date: new Date()
 			parent: options.parent
 		}
