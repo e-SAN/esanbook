@@ -1,10 +1,10 @@
 <template name="post">
 	<div class="media">
 	  <a class="pull-left" href="#">
-	    <img width="60px" src="{{owner}}.png" class="media-object" data-src="holder.js/64x64">
+	    <img width="60px" src="{{powner}}.png" class="media-object" data-src="holder.js/64x64">
 	  </a>
 	  <div class="media-body">
-	    <h6>{{owner}}</h6> 
+	    <h6>{{powner}}</h6> 
 	   <p>{{text}}</p>
 	    <div class="media">
 	      	{{#if likeCount}}<span class="badge badge-success">{{likeCount}}</span>
@@ -26,9 +26,9 @@
 <template name="postcomment">
 	<li class="well">
 		<a class="pull-left" href="/user">
-			<img src="/{{owner}}.png" width="30px" class="img-rounded" alt="#" />
+			<img src="/{{powner}}.png" width="30px" class="img-rounded" alt="#" />
 		</a>
-		<p class="muted commentUser">{{owner}}</p>
+		<p class="muted commentUser">{{powner}}</p>
 		<p class="muted commentText">{{text}}</p>	
 	</li>
 	

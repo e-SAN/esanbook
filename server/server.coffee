@@ -10,14 +10,25 @@ Meteor.publish "appusers", ->
 Meteor.methods
 	# {text:'',owner:'',date:'',parent:''}
 	'postOwner':(id) ->
-		userid = (Posts.find _id: id).owner
-		usr = Meteor.users().find _id: userrid
-		if usr.profile? then usr.profile.name else usr.emails[0].address
+		# this doesn't work
+		posts = (Posts.find _id: id).fetch()
+		userid = posts[0].owner
+		usr = (Meteor.users.find _id: userid).fetch()[0]
+		console.log usr.emails?[0].address
+		usr.emails[0].address
+		if usr? 
+			if usr.profile? 
+				usr.profile.name 
+			else 
+				usr.emails?[0].address
+		else
+			userid 
 		
+
 	'addPost':(options)->
 		post = {
 			text: options.text
-			owner: Meteor.userId()
+			owner: if (em = Meteor.user().emails?[0]?.address)? then em else Meteor.userId()
 			date: new Date()
 			parent: options.parent
 		}
